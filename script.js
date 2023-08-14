@@ -26,6 +26,12 @@ function createTask(taskText) {
   };
 }
 
+function deleteTask(index) {
+
+  taskArray.splice(index,1);
+  updateTasksInLocalStorage();
+  
+}
 
 
 // 3.5 Implement the createTaskElement(taskObj) Function
