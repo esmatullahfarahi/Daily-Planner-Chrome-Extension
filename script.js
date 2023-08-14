@@ -1,5 +1,6 @@
-
-
+const taskInput=document.getElementById("taskInput")
+const addTaskButton=document.getElementById("addTaskButton")
+const taskList=document.getElementById("taskList")
 
 // 3.5 Implement the createTaskElement(taskObj) Function
 function createTaskElement(taskObj) {
