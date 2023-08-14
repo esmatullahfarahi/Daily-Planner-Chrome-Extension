@@ -30,7 +30,7 @@ function deleteTask(index) {
 
   taskArray.splice(index,1);
   updateTasksInLocalStorage();
-  
+
 }
 
 
@@ -67,4 +67,15 @@ function createTaskElement(taskObj) {
     taskItem.appendChild(removeButton);
   
     return taskItem;
+}
+
+function renderTasks() {
+  const taskList = document.getElementById("taskList"); 
+  taskList.innerHTML = "";
+
+  for (let i = 0; i < taskArray.length; i++) {
+    const taskElement = createTaskElement(taskArray[i]);
+    taskList.appendChild(taskElement);
+  }
+
 }
