@@ -1,9 +1,12 @@
+// Get DOM elements
 const taskInput=document.getElementById("taskInput");
 const addTaskButton=document.getElementById("addTaskButton");
 const taskList=document.getElementById("taskList");
 
+// Initialize taskArray with tasks from local storage
 let taskArray=getTasksFromLocalStorage();
 
+// Function to fetch tasks from local storage
 function getTasksFromLocalStorage() {
 
     const tasksString = localStorage.getItem("tasks");
@@ -12,6 +15,7 @@ function getTasksFromLocalStorage() {
  
 }
 
+// Function to update tasks in local storage
 function updateTasksInLocalStorage() {
 
   const tasksString = JSON.stringify(taskArray);
@@ -19,6 +23,7 @@ function updateTasksInLocalStorage() {
 
 }
 
+// Function to create a new task object
 function createTask(taskText) {
   return {
     text: taskText,
@@ -26,6 +31,7 @@ function createTask(taskText) {
   };
 }
 
+// Function to delete a task
 function deleteTask(index) {
 
   taskArray.splice(index,1);
@@ -69,6 +75,7 @@ function createTaskElement(taskObj) {
     return taskItem;
 }
 
+// Function to render tasks on the page
 function renderTasks() {
   const taskList = document.getElementById("taskList"); 
   taskList.innerHTML = "";
@@ -80,6 +87,7 @@ function renderTasks() {
 
 }
 
+// Event listener for adding a new task
 addTaskButton.addEventListener("click", function () {
 
   const taskText = taskInput.value;
@@ -93,3 +101,6 @@ addTaskButton.addEventListener("click", function () {
   renderTasks();
 
 });
+
+// Initial rendering of tasks on page load
+renderTasks();
